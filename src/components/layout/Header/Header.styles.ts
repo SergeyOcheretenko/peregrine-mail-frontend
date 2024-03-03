@@ -1,7 +1,31 @@
-import styled from 'styled-components';
+import { Avatar, styled } from '@mui/material';
+import { ReactComponent as PeregrineSvg } from '../../../assets/icons/svg/peregrine.svg';
 
-export const HeaderRoot = styled.header`
-  width: 100%;
-  height: 5rem;
+export const HeaderRoot = styled('header')`
+  display: flex;
+  justify-content: space-between;
+  height: 4rem;
+  align-items: center;
   border-bottom: 0.25rem solid #f7fbfc;
+  padding: 0 2rem;
+`;
+
+export const PlatformInfoContainer = styled('div')`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+`;
+
+export const PlatformIcon = styled(PeregrineSvg)`
+  width: 2.5rem;
+  height: 2.5rem;
+  fill: #60c3c5;
+`;
+
+export const PlatformTitle = styled('h1')`
+  font-size: 1.6rem;
+`;
+
+export const AvatarIcon = styled(Avatar)`
+  cursor: pointer;
 `;
