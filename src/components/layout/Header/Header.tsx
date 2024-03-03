@@ -6,18 +6,43 @@ import {
   PlatformInfoContainer,
   PlatformTitle,
 } from './Header.styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useGetGoogleLoginUrl } from '../../../api/queries/auth/useGetGoogleLoginUrl';
+import { useGetGoogleCredentialsById } from '../../../api/queries/google-credentials/getGetGoogleCredentialsById';
 
 export default function Header(): JSX.Element {
   const [anchorElement, setAnchorElement] = useState<HTMLElement>();
+  const [accountId, setAccountId] = useState<string>();
+
+  const { data } = useGetGoogleLoginUrl();
+  const { data: account } = useGetGoogleCredentialsById({ id: accountId });
 
   const open = Boolean(anchorElement);
+
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElement(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorElement(undefined);
   };
+
+  const connectNewAccount = () => {
+    if (!data) return;
+
+    window.location.href = data.url;
+  };
+
+  useEffect(() => {
+    const account = document.cookie
+      .split('; ')
+      .filter((row) => row.startsWith('account='))
+      .map((c) => c.split('=')[1])[0];
+
+    if (account) {
+      setAccountId(account);
+    }
+  }, []);
 
   return (
     <HeaderRoot>
@@ -27,7 +52,7 @@ export default function Header(): JSX.Element {
       </PlatformInfoContainer>
 
       {/* <UserMenu /> */}
-      <AvatarIcon onClick={handleClick} />
+      <AvatarIcon src={account?.picture} onClick={handleClick} />
 
       <Menu
         anchorEl={anchorElement}
@@ -66,7 +91,9 @@ export default function Header(): JSX.Element {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem onClick={handleClose}>Connect new account</MenuItem>
+        <MenuItem onClick={connectNewAccount}>
+          {account ? 'Connect another account' : 'Connect new account'}
+        </MenuItem>
       </Menu>
     </HeaderRoot>
   );
