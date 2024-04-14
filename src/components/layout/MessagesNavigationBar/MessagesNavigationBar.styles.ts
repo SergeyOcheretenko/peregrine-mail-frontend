@@ -2,6 +2,7 @@ import { Typography, styled } from '@mui/material';
 
 export const MessagesNavigationBarRoot = styled('div')`
   width: 20rem;
+  min-width: 20rem;
   border-right: 0.25rem solid #f7fbfc;
   padding-top: 2rem;
   display: flex;

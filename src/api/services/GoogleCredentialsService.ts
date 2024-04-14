@@ -11,4 +11,18 @@ export class GoogleCredentialsService {
       path: `/google-credentials/${id}`,
     });
   }
+
+  public static getLastMessages({
+    credentialsId,
+    amount,
+  }: {
+    credentialsId: string;
+    amount: number;
+  }): CancelablePromise<any> {
+    return __request({
+      method: 'GET',
+      baseUrl: GoogleCredentialsService.baseUrl,
+      path: `/google-messages/${credentialsId}/last-messages/${amount}`,
+    });
+  }
 }

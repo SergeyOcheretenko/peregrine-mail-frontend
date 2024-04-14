@@ -1,7 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
-import MessagesPage from '../pages/MessagesPage/MessagesPage';
+import DashboardInboxPage from '../pages/DashboardInboxPage/DashboardInboxPage';
+import LandingPage from '../pages/LandingPage/LandingPage';
 
 export const rootRouter = createBrowserRouter([
-  { path: '/messages', element: <MessagesPage /> },
-  { path: '*', element: <MessagesPage /> },
+  { path: '/', element: <LandingPage /> },
+  { path: '/dashboard/inbox', element: <DashboardInboxPage /> },
 ]);
