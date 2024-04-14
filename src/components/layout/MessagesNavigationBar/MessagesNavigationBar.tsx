@@ -1,56 +1,42 @@
-import React from 'react';
+import {
+  DeleteOutlined,
+  EditOutlined,
+  MailOutlined,
+  StarOutlined,
+  WarningOutlined,
+} from '@ant-design/icons';
 import {
   MessagesNavigationBarItem,
   MessagesNavigationBarItemTypography,
   MessagesNavigationBarRoot,
 } from './MessagesNavigationBar.styles';
-import {
-  DeleteOutline,
-  EditOutlined,
-  EmailOutlined,
-  MessageOutlined,
-  ReportGmailerrorredOutlined,
-  StarOutline,
-  StopOutlined,
-  WarningOutlined,
-} from '@mui/icons-material';
 
 export default function MessagesNavigationBar(): JSX.Element {
   return (
     <MessagesNavigationBarRoot>
       <MessagesNavigationBarItem>
-        <EmailOutlined />
-        <MessagesNavigationBarItemTypography>
-          Inbox
-        </MessagesNavigationBarItemTypography>
+        <MailOutlined />
+        <MessagesNavigationBarItemTypography>Inbox</MessagesNavigationBarItemTypography>
       </MessagesNavigationBarItem>
 
       <MessagesNavigationBarItem>
-        <StarOutline />
-        <MessagesNavigationBarItemTypography>
-          Starred
-        </MessagesNavigationBarItemTypography>
+        <StarOutlined />
+        <MessagesNavigationBarItemTypography>Starred</MessagesNavigationBarItemTypography>
       </MessagesNavigationBarItem>
 
       <MessagesNavigationBarItem>
         <EditOutlined />
-        <MessagesNavigationBarItemTypography>
-          Drafts
-        </MessagesNavigationBarItemTypography>
+        <MessagesNavigationBarItemTypography>Drafts</MessagesNavigationBarItemTypography>
       </MessagesNavigationBarItem>
 
       <MessagesNavigationBarItem>
-        <ReportGmailerrorredOutlined />
-        <MessagesNavigationBarItemTypography>
-          Spam
-        </MessagesNavigationBarItemTypography>
+        <WarningOutlined />
+        <MessagesNavigationBarItemTypography>Spam</MessagesNavigationBarItemTypography>
       </MessagesNavigationBarItem>
 
       <MessagesNavigationBarItem>
-        <DeleteOutline />
-        <MessagesNavigationBarItemTypography>
-          Trash
-        </MessagesNavigationBarItemTypography>
+        <DeleteOutlined />
+        <MessagesNavigationBarItemTypography>Trash</MessagesNavigationBarItemTypography>
       </MessagesNavigationBarItem>
     </MessagesNavigationBarRoot>
   );

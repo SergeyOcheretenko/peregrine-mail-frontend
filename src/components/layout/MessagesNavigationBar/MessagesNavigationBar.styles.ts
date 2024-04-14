@@ -1,4 +1,5 @@
-import { Typography, styled } from '@mui/material';
+import { Typography } from 'antd';
+import styled from 'styled-components';
 
 export const MessagesNavigationBarRoot = styled('div')`
   width: 20rem;
@@ -15,6 +16,7 @@ export const MessagesNavigationBarRoot = styled('div')`
 export const MessagesNavigationBarItem = styled('div')`
   width: 14rem; // will be 16rem with padding
   background-color: #f4fdfc;
+  border: 1px solid grey;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;

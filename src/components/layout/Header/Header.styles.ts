@@ -1,5 +1,6 @@
-import { Avatar, styled } from '@mui/material';
+import styled from 'styled-components';
 import { ReactComponent as PeregrineSvg } from '../../../assets/icons/svg/peregrine.svg';
+import { Avatar } from 'antd';
 
 export const HeaderRoot = styled('header')`
   display: flex;
@@ -28,4 +29,7 @@ export const PlatformTitle = styled('h1')`
 
 export const AvatarIcon = styled(Avatar)`
   cursor: pointer;
+
+  width: 2.5rem;
+  height: 2.5rem;
 `;
