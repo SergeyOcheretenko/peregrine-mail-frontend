@@ -10,39 +10,56 @@ import {
   MessagesNavigationBarItemTypography,
   MessagesNavigationBarRoot,
 } from './MessagesNavigationBar.styles';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function MessagesNavigationBar(): JSX.Element {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
 
-  console.log('location', pathname);
+  const items = [
+    {
+      key: 'inbox',
+      label: 'Inbox',
+      pathname: '/dashboard/inbox',
+      icon: <MailOutlined />,
+    },
+    {
+      key: 'starred',
+      label: 'Starred',
+      pathname: '/dashboard/starred',
+      icon: <StarOutlined />,
+    },
+    {
+      key: 'drafts',
+      label: 'Drafts',
+      pathname: '/dashboard/drafts',
+      icon: <EditOutlined />,
+    },
+    {
+      key: 'spam',
+      label: 'Spam',
+      pathname: '/dashboard/spam',
+      icon: <WarningOutlined />,
+    },
+    {
+      key: 'trash',
+      label: 'Trash',
+      pathname: '/dashboard/trash',
+      icon: <DeleteOutlined />,
+    },
+  ];
 
   return (
     <MessagesNavigationBarRoot>
-      <MessagesNavigationBarItem isActive={pathname === '/dashboard/inbox'}>
-        <MailOutlined />
-        <MessagesNavigationBarItemTypography>Inbox</MessagesNavigationBarItemTypography>
-      </MessagesNavigationBarItem>
-
-      <MessagesNavigationBarItem isActive={false}>
-        <StarOutlined />
-        <MessagesNavigationBarItemTypography>Starred</MessagesNavigationBarItemTypography>
-      </MessagesNavigationBarItem>
-
-      <MessagesNavigationBarItem isActive={false}>
-        <EditOutlined />
-        <MessagesNavigationBarItemTypography>Drafts</MessagesNavigationBarItemTypography>
-      </MessagesNavigationBarItem>
-
-      <MessagesNavigationBarItem isActive={false}>
-        <WarningOutlined />
-        <MessagesNavigationBarItemTypography>Spam</MessagesNavigationBarItemTypography>
-      </MessagesNavigationBarItem>
-
-      <MessagesNavigationBarItem isActive={false}>
-        <DeleteOutlined />
-        <MessagesNavigationBarItemTypography>Trash</MessagesNavigationBarItemTypography>
-      </MessagesNavigationBarItem>
+      {items.map((item) => (
+        <MessagesNavigationBarItem
+          isActive={pathname === item.pathname}
+          onClick={() => navigate(item.pathname)}
+        >
+          {item.icon}
+          <MessagesNavigationBarItemTypography>{item.label}</MessagesNavigationBarItemTypography>
+        </MessagesNavigationBarItem>
+      ))}
     </MessagesNavigationBarRoot>
   );
 }
