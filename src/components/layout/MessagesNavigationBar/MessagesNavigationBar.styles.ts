@@ -11,6 +11,7 @@ export const MessagesNavigationBarRoot = styled.div`
   align-items: center;
   gap: 1rem;
   cursor: pointer;
+  box-sizing: border-box;
 `;
 
 export const MessagesNavigationBarItem = styled.div<{ isActive: boolean }>`
