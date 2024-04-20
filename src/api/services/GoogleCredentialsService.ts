@@ -22,7 +22,7 @@ export class GoogleCredentialsService {
     return __request({
       method: 'GET',
       baseUrl: GoogleCredentialsService.baseUrl,
-      path: `/google-messages/${credentialsId}/last-messages/${amount}`,
+      path: `/google-messages/${credentialsId}/inbox-messages/${amount}`,
     });
   }
 }
