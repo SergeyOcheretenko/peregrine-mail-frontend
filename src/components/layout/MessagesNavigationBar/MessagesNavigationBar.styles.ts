@@ -1,7 +1,7 @@
 import { Typography } from 'antd';
 import styled from 'styled-components';
 
-export const MessagesNavigationBarRoot = styled('div')`
+export const MessagesNavigationBarRoot = styled.div`
   width: 20rem;
   min-width: 20rem;
   border-right: 0.25rem solid #f7fbfc;
@@ -13,9 +13,9 @@ export const MessagesNavigationBarRoot = styled('div')`
   cursor: pointer;
 `;
 
-export const MessagesNavigationBarItem = styled('div')`
+export const MessagesNavigationBarItem = styled.div<{ isActive: boolean }>`
   width: 14rem; // will be 16rem with padding
-  background-color: #f4fdfc;
+  background-color: ${({ isActive }) => (isActive ? '#cafaf6' : '#f4fdfc')};
   border: 1px solid grey;
   border-radius: 0.5rem;
   display: flex;
@@ -24,4 +24,6 @@ export const MessagesNavigationBarItem = styled('div')`
   gap: 0.5rem;
 `;
 
-export const MessagesNavigationBarItemTypography = styled(Typography)``;
+export const MessagesNavigationBarItemTypography = styled(Typography)`
+  font-weight: 600;
+`;
