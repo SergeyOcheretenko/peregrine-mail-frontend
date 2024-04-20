@@ -12,7 +12,7 @@ export class GoogleCredentialsService {
     });
   }
 
-  public static getLastMessages({
+  public static getInboxMessages({
     credentialsId,
     amount,
   }: {

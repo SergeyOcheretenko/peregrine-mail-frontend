@@ -1,7 +1,7 @@
 import { UseQueryResult, useQuery } from 'react-query';
 import { GoogleCredentialsService } from '../../services/GoogleCredentialsService';
 
-export const useGetLastGoogleMessages = ({
+export const useGetInboxGoogleMessages = ({
   credentialsId,
   amount,
 }: {
@@ -11,7 +11,7 @@ export const useGetLastGoogleMessages = ({
   return useQuery(
     '',
     () =>
-      GoogleCredentialsService.getLastMessages({
+      GoogleCredentialsService.getInboxMessages({
         credentialsId: credentialsId as string,
         amount: amount as number,
       }),
