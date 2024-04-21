@@ -1,16 +1,16 @@
 import Cookies from 'js-cookie';
 import { useMemo } from 'react';
-import { useGetInboxGoogleMessages } from '../../../api/queries/google-messages/getInboxGoogleMessages';
 import PageLayout from '../../../components/layout/PageLayout/PageLayout';
 import MessagePlank from '../components/MessagePlank/MessagePlank';
 import { Spin } from 'antd';
+import { useGetStarredGoogleMessages } from '../../../api/queries/google-messages/getStarredGoogleMessages';
 
-export default function DashboardInbox(): JSX.Element {
+export default function DashboardStarred(): JSX.Element {
   const accountId = useMemo(() => {
     return Cookies.get('account');
   }, []);
 
-  const { data, isLoading } = useGetInboxGoogleMessages({ credentialsId: accountId, amount: 10 });
+  const { data, isLoading } = useGetStarredGoogleMessages({ credentialsId: accountId, amount: 10 });
 
   return (
     <PageLayout>

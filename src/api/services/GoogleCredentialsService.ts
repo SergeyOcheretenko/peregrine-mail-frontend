@@ -25,4 +25,32 @@ export class GoogleCredentialsService {
       path: `/google-messages/${credentialsId}/inbox-messages/${amount}`,
     });
   }
+
+  public static getSpamMessages({
+    credentialsId,
+    amount,
+  }: {
+    credentialsId: string;
+    amount: number;
+  }): CancelablePromise<any> {
+    return __request({
+      method: 'GET',
+      baseUrl: GoogleCredentialsService.baseUrl,
+      path: `/google-messages/${credentialsId}/spam-messages/${amount}`,
+    });
+  }
+
+  public static getStarredMessages({
+    credentialsId,
+    amount,
+  }: {
+    credentialsId: string;
+    amount: number;
+  }): CancelablePromise<any> {
+    return __request({
+      method: 'GET',
+      baseUrl: GoogleCredentialsService.baseUrl,
+      path: `/google-messages/${credentialsId}/starred-messages/${amount}`,
+    });
+  }
 }
