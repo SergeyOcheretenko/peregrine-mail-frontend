@@ -53,4 +53,32 @@ export class GoogleCredentialsService {
       path: `/google-messages/${credentialsId}/starred-messages/${amount}`,
     });
   }
+
+  public static getTrashMessages({
+    credentialsId,
+    amount,
+  }: {
+    credentialsId: string;
+    amount: number;
+  }): CancelablePromise<any> {
+    return __request({
+      method: 'GET',
+      baseUrl: GoogleCredentialsService.baseUrl,
+      path: `/google-messages/${credentialsId}/trash-messages/${amount}`,
+    });
+  }
+
+  public static getDraftMessages({
+    credentialsId,
+    amount,
+  }: {
+    credentialsId: string;
+    amount: number;
+  }): CancelablePromise<any> {
+    return __request({
+      method: 'GET',
+      baseUrl: GoogleCredentialsService.baseUrl,
+      path: `/google-messages/${credentialsId}/draft-messages/${amount}`,
+    });
+  }
 }
